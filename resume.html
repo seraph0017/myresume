@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>徐楠的个人简历</title>
+
+</head>
+<body>
+<h1>徐楠的个人简历</h1>
+
+<hr />
+
+<h2>基本信息</h2>
+
+<ul>
+<li>性别：男</li>
+<li>年龄：25</li>
+<li>地点：上海</li>
+<li>应聘职位：测试开发工程师</li>
+<li>爱好：python、电影、汽车</li>
+<li>学历：本科</li>
+<li>Github: <a href="https://github.com/seraph0017/">https://github.com/seraph0017/</a></li>
+</ul>
+
+
+<h2>联系方式</h2>
+
+<ul>
+<li>手机：18616708172</li>
+<li>邮箱：seraph0017@hotmail.com</li>
+</ul>
+
+
+<h2>常用组合</h2>
+
+<ul>
+<li>网站：django + mysql + bootstrap / flask + mongodb + bootstrap</li>
+<li>爬虫：lxml + requests + gevent</li>
+<li>ui层：lettuce + selenium + flask</li>
+<li>接口层: lettuce + requests + flask</li>
+<li>其他用过的开源框架：
+
+<ul>
+<li>ant + testng + selenium</li>
+<li>cucumber-jvm + selenium</li>
+<li>cucumber + selenium</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>工作经验</h2>
+
+<h3>Favbuy Corp(上海优价网络技术)</h3>
+
+<ul>
+<li>职位：测试开发工程师</li>
+<li>时间：2013.6 - 现在</li>
+<li>内容：主要负责公司自动化框架的搭建，和部分后台页面开发工作</li>
+</ul>
+
+
+<h3>美科颐康信息科技有限公司</h3>
+
+<ul>
+<li>职位：项目经理/自动化测试工程师</li>
+<li>时间：2009.7 - 2013.5</li>
+<li>内容：主要负责自动化项目验收，和客户沟通需求</li>
+</ul>
+
+
+<h2>项目经验</h2>
+
+<h3>1、data007.com</h3>
+
+<ul>
+<li>时间：2013.10 - 现在</li>
+<li>描述：基于大数据的、面向淘宝卖家的数据挖掘与分析网站。主要负责ui和接口自动化框架的搭建以及网站后台部分功能的开发，使用技术为lettuce + selenium + requests</li>
+<li>链接：<a href="http://www.data007.com">http://www.data007.com</a></li>
+</ul>
+
+
+<h3>2、dealpick.com</h3>
+
+<ul>
+<li>时间：2013.6 - 2013.9</li>
+<li>描述：面向欧美用户的限时特卖聚合网站。主要负责ui的接口自动化框架搭建,使用技术为lettuce + selenium</li>
+<li>链接：<a href="http://www.dealpick.com">http://www.dealpick.com</a></li>
+</ul>
+
+
+<h3>3、favbuy.com</h3>
+
+<ul>
+<li>时间：2013.6 - 2013.8</li>
+<li>描述：面向欧美用户的奢侈品导购网站。主要负责自动化框架的搭建（ui层，api层，数据校验）参与了部分爬虫的开发，其中ui层用lettuce + selenium，api层用lettuce + requests，数据校验为lxml + requests + gevent</li>
+<li>链接：<a href="http://www.favbuy.com">http://www.favbuy.com</a></li>
+</ul>
+
+
+<h3>4、max-xn.com</h3>
+
+<ul>
+<li>时间：2013.8 - 现在</li>
+<li>描述：自己开发的网站，主要为了自学，试验田性质的项目内容随时会变，爬虫 lxml + requests + gevent、 网站框架django + mysql、 前端ui框架 bootstrap3</li>
+<li>链接：<a href="http://max-xn.com">http://max-xn.com</a></li>
+</ul>
+
+
+<h3>5、西安交通大学第一附属医院oa系统</h3>
+
+<ul>
+<li>时间：2010.9 - 2011.9</li>
+<li>描述：该项目为一附院的一个单独的oa系统，作用是替代老旧的行政机制，帮助其建设成现代化的新型医院。主要负责项目的跟进，验收功能，采集需求，在版本迭代期间用selenium覆盖ui层测试</li>
+</ul>
+
+
+<h3>6、长安医院电子病例归档系统</h3>
+
+<ul>
+<li>时间：2010.7 - 2012.12</li>
+<li>描述：该项目为长安医院无纸化系统的后期项目，本项目的作用是在打印机打印病历的同时将其扫描下来的电子稿备份一份到电子病历数据库中，已达到电子病历归档的目的。由于牵扯责任人，该项目须在ukey落实后进行，导致持续时间长，主要负责测试该系统和培训客户使用两个方面。中后期成为项目主管后也负责和客户沟通需求。负责qtp脚本编写</li>
+</ul>
+
+
+<h3>7、长安医院oa系统</h3>
+
+<ul>
+<li>时间：2009.7 - 2012.9</li>
+<li>描述：该项目为长安医院无纸化系统的先期项目，由于为定制项目，所以每个阶段都会做出修改，包括业务流的增改和相关人员培训在内，是一个持续性很强的项目，他的主要目的是树立一个网上平台供医院职工进行无纸化交流和业务审批流程，结合后期的ukey，达到认证无纸化的目的。主要负责测试该系统，负责qtp脚本编写，中后期成为项目主管后也负责和客户沟通需求。</li>
+</ul>
+
+
+<p><br/>
+<br/>
+<br/>
+<br/></p>
+
+<h2>技术栈</h2>
+
+<table>
+<thead>
+<tr>
+<th>  时间         </th>
+<th align="center"> 技能             </th>
+<th align="right"> 熟悉程度  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>  2013         </td>
+<td align="center"> lettuce        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2013         </td>
+<td align="center"> flask        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2013         </td>
+<td align="center"> django        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2013         </td>
+<td align="center"> mongoDB        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2013         </td>
+<td align="center"> Git        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2012         </td>
+<td align="center"> python        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2012         </td>
+<td align="center"> cucumber        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2012         </td>
+<td align="center"> ruby        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2012         </td>
+<td align="center"> cucumber-jvm        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2011         </td>
+<td align="center"> selenium        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2011         </td>
+<td align="center"> linux/unix        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2011         </td>
+<td align="center"> mysql        </td>
+<td align="right">熟练 </td>
+</tr>
+<tr>
+<td>  2011         </td>
+<td align="center"> testng        </td>
+<td align="right">会用 </td>
+</tr>
+<tr>
+<td>  2011         </td>
+<td align="center"> java        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2010         </td>
+<td align="center"> javascript        </td>
+<td align="right">掌握 </td>
+</tr>
+<tr>
+<td>  2010         </td>
+<td align="center"> loadrunner        </td>
+<td align="right">了解 </td>
+</tr>
+<tr>
+<td>  2010         </td>
+<td align="center"> qtp        </td>
+<td align="right">掌握 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>其他信息</h2>
+
+<ul>
+<li>开发平台： macbook pro + sublime/vim</li>
+</ul>
+
+</body>
+</html>
